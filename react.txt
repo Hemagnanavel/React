@@ -1,0 +1,7 @@
+react application create
+npx create-react-app my-react-app
+npm install react 18 react-dom18
+npm install
+npm install web-vitals --save-dev
+set the app path
+npm start
