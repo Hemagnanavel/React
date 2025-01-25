@@ -8,7 +8,8 @@ const Header = () => {
     console.log('thanks for click')
   }
   return (
-    <div>Header
+    <div>
+      <h4>Header</h4>
       <header style={headerstyle}>
       <h1>To do list</h1>
       </header>

@@ -1,24 +1,47 @@
 import React, { useState } from 'react';
 
 const Content = () => {
-  const [count, setCount] = useState(0);
-
-  function increment() {
-    setCount(count + 1);
-  }
-
-  function decrement() {
-    setCount(count - 1);
-  }
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: true,
+      item: "practice coding"
+    },
+    {
+      id: 2,
+      checked: true,
+      item: "play cricket"
+    },
+    {
+      id: 3,
+      checked: false,
+      item: "learn React"
+    }
+  ]);
 
   return (
-    <div>
-      Content <br />
-      <button onClick={decrement}>-</button>
-      <br />
-      <p>{count}</p>
-      <button onClick={increment}>+</button>
-    </div>
+    <main>
+      <ul>
+        {items.map((todo) => (
+          <li key={todo.id}>
+            <input
+              type="checkbox"
+              checked={todo.checked}
+              onChange={() => {
+                setItems(prevItems =>
+                  prevItems.map(item =>
+                    item.id === todo.id
+                      ? { ...item, checked: !item.checked }
+                      : item
+                  )
+                );
+              }}
+            />
+            {todo.item}
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 };
 
