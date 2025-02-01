@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaRegTrashCan } from "react-icons/fa6";
 
 const Content = () => {
   const [items, setItems] = useState([
@@ -19,6 +20,11 @@ const Content = () => {
     }
   ]);
 
+  // Delete item handler
+  const handleDelete = (id) => {
+    setItems(prevItems => prevItems.filter(item => item.id !== id));
+  };
+
   return (
     <main>
       <ul>
@@ -38,6 +44,9 @@ const Content = () => {
               }}
             />
             {todo.item}
+            <button onClick={() => handleDelete(todo.id)}>
+              <FaRegTrashCan />
+            </button>
           </li>
         ))}
       </ul>
